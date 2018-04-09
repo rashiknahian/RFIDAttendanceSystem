@@ -61,19 +61,15 @@ $userRow=$query->fetch_array();
                     <td>".$data['address']."</td>
                     <td>".$data['bloodGroup']."</td>
                 </tr>
-            </tbody>
-            </table>
-        "
-           ;
-             
-            
+                "; 
             }
-           
-        ?>
-            </div>
-            <!-- ./Main Body -->
+            //While Loop Ends
+            ?>
+                    </tbody>
+                </table>
 
             </div>
+            <!-- ./Main Body -->
         </div>
     </body>
 
