@@ -53,10 +53,7 @@ $DBcon->close();
         </div>
         <!-- ./Main Body -->
 
-        <!-- Footer -->
-
-        <?php include "footer.php"?>
-        <!-- ./Footer -->
+     
     </body>
 
     </html>
