@@ -11,7 +11,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
                 <li class="active"><a href="home.php">Home</a></li>
-                <li><a href="user.php">Employee Data Store</a></li>
+                <li><a href="employeeDataAdd.php">Employee Data Store</a></li>
+                <li><a href="employeeDataView.php">Employee Data View</a></li>
                 <li><a href="attendance.php">Employee's attendance</a></li>
                 <li><a href="task.php">Assign Task</a></li>
             </ul>

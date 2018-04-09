@@ -28,7 +28,7 @@ $DBcon->close();
         <!-- Main Body -->
         <div class="col-md-12">
             <div class="container main">
-                <p>Enter Employees Data</p>
+                <p>Enter Employees' Data</p>
                 <br>
                 <form method="post" action="employeeDataSave.php" enctype='multipart/form-data'>
                     <div class="form-group">

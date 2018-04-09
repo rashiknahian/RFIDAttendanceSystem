@@ -68,3 +68,16 @@ body {
 .footer p {
     padding: 15px;
 }
+table{
+    width: 100%;
+}
+tr,td,th{
+    font-size:14px;
+}
+th {
+    text-align: center;
+}
+.employeeImg{
+    height: 200px;
+    width: 200px;
+}

@@ -9,8 +9,8 @@ if (!isset($_SESSION['userSession'])) {
 
 $query = $DBcon->query("SELECT * FROM users WHERE user_id=".$_SESSION['userSession']);
 $userRow=$query->fetch_array();
-/* Database Connection Aborted*/
-$DBcon->close();
+
+$query2 = $DBcon->query("SELECT * FROM employeeData ORDER BY ID DESC ");
 
 ?>
     <!DOCTYPE html>
@@ -30,35 +30,35 @@ $DBcon->close();
             <div class="container main">
                 <p>Assign Task to Employee</p>
                 <br>
-
-                <form action="">
+                <form action="taskAdd.php" method="post">
                     <div class="form-group">
                         <label for="">Select Employee's Id</label>
-                        <select name="carlist" form="carform">
-  <option value="volvo">1234</option>
-  <option value="saab">3456</option>
-  <option value="opel">987</option>
-  <option value="audi">3456</option>
-</select>
+                        <select name="employeeId">
+                        <?php
+                        
+                        while($data=$query2->fetch_array()){
+                            echo "<option value='".$data['employeeId']."'>'".$data['employeeId']."'</option>";
+                        }
+                        ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Task" name="username" required />
+                        <input type="text" class="form-control" placeholder="Task" name="task" required />
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default" name="btn-signup">
-    		<span class="glyphicon glyphicon-log-in"></span> &nbsp; Submit
-			</button>
-
+                        <div class="col-md-6">
+                            <input type="submit" class="form-control" name="submit" value="Submit" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="reset" class="form-control" value="Reset">
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
         <!-- ./Main Body -->
 
-        <!-- Footer -->
 
-        <?php include "footer.php"?>
-        <!-- ./Footer -->
     </body>
 
     </html>
