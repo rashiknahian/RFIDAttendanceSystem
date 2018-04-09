@@ -1,26 +1,21 @@
 <?php
+//Database Connection Establish
+include "dbconnect.php";
 
-$link = mysqli_connect("localhost", "root", "root", "RFIDAttendanceSystem");
- 
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
- 
-// Escape user inputs for security
-$employeeId = mysqli_real_escape_string($link, $_REQUEST['employeeId']);
-$task = mysqli_real_escape_string($link, $_REQUEST['task']);
+//Variables for Form Data
+$employeeId = mysqli_real_escape_string($DBcon, $_REQUEST['employeeId']);
+$task = mysqli_real_escape_string($DBcon, $_REQUEST['task']);
 $dataTime = date("Y-m-d H:i:s");
 
  
 // attempt insert query execution
-$sql = "INSERT INTO task (employeeId, task,created) VALUES ('$employeeId', '$task','$dataTime' )";
-if(mysqli_query($link, $sql)){
-    echo "Records added successfully.";
+$query = "INSERT INTO task (employeeId, task,created) VALUES ('$employeeId', '$task','$dataTime' )";
+if(mysqli_query($DBcon, $query)){
+    echo "<h1>Successfully data Recorded.</h1><br><a href=\"task.php\">  Back </a>";
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    echo "ERROR: Could not able to execute $query. " . mysqli_error($DBcon);
 }
  
 // close connection
-mysqli_close($link);
+mysqli_close($DBcon);
 ?>

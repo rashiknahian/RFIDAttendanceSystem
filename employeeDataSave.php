@@ -33,7 +33,7 @@ if(isset($_POST["submit"])){
         //Insert Form Data into database
         $insert = $db->query("INSERT into employeeData (employeeId,username,designation,email,phone,address,bloodGroup,image,created) VALUES ('$employeeId','$username','$designation','$email','$phone','$address','$bloodGroup','$imgContent', '$dataTime')");
         if($insert){
-            echo "<h1>Successfully data Recorded.</h1><br><a href=\"user.php\">  Back </a>";
+            echo "<h1>Successfully data Recorded.</h1><br><a href=\"employeeDataAdd.php.php\">  Back </a>";
         }else{
             echo "File upload failed, please try again.";
         } 
