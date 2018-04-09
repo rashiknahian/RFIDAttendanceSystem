@@ -11,54 +11,18 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `RFIDAttendanceSystem`
---
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Attendance`
---
-
-CREATE TABLE `Attendance` (
-  `id` int(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  `starttime` time(6) NOT NULL,
-  `endtime` time(6) NOT NULL,
-  `duration` time(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(60) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  
+  
+CREATE TABLE `employeeData` (
+  `id` int(11) NOT NULL,
+    `employeeId` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+    `designation` varchar(23) COLLATE utf8_unicode_ci NOT NULL,
+    `email` varchar(23) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `bloodGroup` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `image` longblob NOT NULL,
+  `created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
