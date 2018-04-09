@@ -1,4 +1,5 @@
 <?php
+/*PHP Session Begins*/
 session_start();
 include_once 'dbconnect.php';
 
@@ -8,6 +9,7 @@ if (!isset($_SESSION['userSession'])) {
 
 $query = $DBcon->query("SELECT * FROM users WHERE user_id=".$_SESSION['userSession']);
 $userRow=$query->fetch_array();
+/* Database Connection Aborted*/
 $DBcon->close();
 
 ?>
@@ -15,71 +17,52 @@ $DBcon->close();
     <html lang="en">
 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>RFID Attendance System</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <?php include "header.php";?>
     </head>
 
     <body>
+        <!-- Responsive Navigation -->
+        <?php include "navigation.php";?>
+        <!-- ./Responsive Navigation -->
 
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="home.php">Home</a></li>
-                        <li><a href="user.php">User Create</a></li>
-                        <li><a href="attendance.php">Employee's attendance</a></li>
-                        <li><a href="task.php">Assign Task</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp; <?php echo $userRow['username']; ?></a></li>
-                        <li><a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </nav>
+        <!-- Main Body -->
+        <div class="col-md-12">
+            <div class="container main">
+                <p>Enter Employees Data</p>
+                <br>
 
-        <div class="container" style="margin-top:150px;text-align:center;font-family:Verdana, Geneva, sans-serif;font-size:35px;">
-            <p>Enter Employees Data</p>
-            <br>
-            
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Employee's Id" name="username" required />
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Full Name" name="username" required />
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Designation" name="username" required />
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email" name="username" required />
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Phone No" name="username" required />
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Blood Group" name="username" required />
-            </div>
-            <div class="form-group">
-            <button type="submit" class="btn btn-default" name="btn-signup">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Employee's Id" name="username" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Full Name" name="username" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Designation" name="username" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email" name="username" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Phone No" name="username" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Blood Group" name="username" required />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default" name="btn-signup">
     		<span class="glyphicon glyphicon-log-in"></span> &nbsp; Submit
-			</button> 
-            
-        </div> 
-        </div>
+			</button>
 
+                </div>
+            </div>
+        </div>
+        <!-- ./Main Body -->
+
+        <!-- Footer -->
+
+        <?php include "footer.php"?>
+        <!-- ./Footer -->
     </body>
 
     </html>
