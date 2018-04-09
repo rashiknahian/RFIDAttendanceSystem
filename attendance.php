@@ -9,8 +9,7 @@ if (!isset($_SESSION['userSession'])) {
 
 $query = $DBcon->query("SELECT * FROM users WHERE user_id=".$_SESSION['userSession']);
 $userRow=$query->fetch_array();
-/* Database Connection Aborted*/
-$DBcon->close();
+
 
 ?>
     <!DOCTYPE html>
@@ -25,35 +24,52 @@ $DBcon->close();
         <?php include "navigation.php";?>
         <!-- ./Responsive Navigation -->
 
-        <!-- Main Body -->
+           <!-- Main Body -->
         <div class="col-md-12">
             <div class="container main">
-                <p>Attendance</p>
-                <br>
+                <p>View Employees' Attendance</p>
 
-                <table class="table table-striped table-bordered table-hover">
+                <!-- Data View In Table-->
+                <table class="table table-bordered table-striped table-hover table-responsive" id="tableData">
                     <thead>
-                        <tr>
-                            <th>Employee's ID</th>
-                            <th>Entry Time</th>
-                            <th>Exit Time</th>
+                        <tr class="success">
+                            <th>Employee Id</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
                             <th>Duration</th>
+                            
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>014321</td>
-                            <td>10:00</td>
-                            <td>16:00</td>
-                            <td>6 hrs</td>
-                        </tr>
+                        <?php
+            $query2 = $DBcon->query("SELECT * FROM attendance");
+            while($data=$query2->fetch_array()){
+                
+           echo "
+                <tr>
+                    
+                    <td>".$data['username']."</td>
+                    <td>".$data['date']."</td>
+                    <td>".$data['starttime']."</td>
+                    <td>".$data['endtime']."</td>
+                    
+                  
+                    
+                    
+                </tr>
+                "; 
+            }
+            //While Loop Ends
+            ?>
                     </tbody>
                 </table>
-            </div>
-        </div>
-        <!-- ./Main Body -->
 
-     
+            </div>
+            <!-- ./Main Body -->
+
+        </div>
     </body>
 
     </html>
